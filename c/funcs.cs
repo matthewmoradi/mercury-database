@@ -180,7 +180,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.users.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected staff insert_staff(Dictionary<string, string> parameters)
         {
@@ -190,7 +190,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.staffs.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected session insert_session(Dictionary<string, string> parameters)
         {
@@ -200,7 +200,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.sessions.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected message insert_message(Dictionary<string, string> parameters)
         {
@@ -210,7 +210,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.messages.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected group insert_group(Dictionary<string, string> parameters)
         {
@@ -220,7 +220,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.groups.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected group_user insert_group_user(Dictionary<string, string> parameters)
         {
@@ -230,7 +230,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.group_users.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected contact insert_contact(Dictionary<string, string> parameters)
         {
@@ -240,7 +240,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.contacts.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected chat insert_chat(Dictionary<string, string> parameters)
         {
@@ -250,7 +250,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.chats.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected attachment insert_attachment(Dictionary<string, string> parameters)
         {
@@ -260,7 +260,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.attachments.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         protected language insert_language(Dictionary<string, string> parameters)
         {
@@ -270,7 +270,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.languages.Add(item_new);
             dbc.insert(item_new);
-            return item;
+            return item_new;
         }
         #endregion insert
         // 

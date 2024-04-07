@@ -45,9 +45,12 @@ namespace mercury.controller
         }
         private ActionResult ret(object data)
         {
+            if (data == null)
+            {
+                return ret(new dto.msg(dto.msg.response_code_valid, message_sys.failed, "", false));
+            }
             string data_str = "";
-            if (data != null)
-                data_str = JsonConvert.SerializeObject(data);
+            data_str = JsonConvert.SerializeObject(data);
             var res = new dto.msg(dto.msg.response_code_valid, message_sys.success, data_str, true);
             return ret(res);
         }
@@ -64,6 +67,7 @@ namespace mercury.controller
         public IActionResult get()
         {
             string body = new StreamReader(HttpContext.Request.Body, Encoding.UTF8, true, 1024, true).ReadToEnd();
+            // System.Console.WriteLine(body);
             var parameters = decode_parameters(body);
             if (!contains(parameters, new string[] { "token", "action" }))
             {
