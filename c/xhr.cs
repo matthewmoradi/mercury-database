@@ -17,26 +17,6 @@ namespace mercury.controller
 {
     public partial class ctrl_xhr : Controller
     {
-        private Dictionary<string, string> decode_parameters(string body)
-        {
-            // decryption
-            Dictionary<string, string> parameters = JsonConvert.DeserializeObject<Dictionary<string, string>>(body);
-            return parameters;
-        }
-        private bool contains(Dictionary<string, string> dic, string[] keys)
-        {
-            foreach (var key in keys)
-                if (!dic.ContainsKey(key))
-                    return false;
-            return true;
-        }
-        private ActionResult ret(staff _staff, dto.msg obj)
-        {
-            string serd = JsonConvert.SerializeObject(obj);
-            string ret = Convert.ToBase64String(Encoding.UTF8.GetBytes(serd));
-            // Console.WriteLine("Response Len: " + ret.Length);
-            return Content(ret);
-        }
         private ActionResult ret(dto.msg obj)
         {
             string serd = JsonConvert.SerializeObject(obj);
@@ -68,8 +48,8 @@ namespace mercury.controller
         {
             string body = new StreamReader(HttpContext.Request.Body, Encoding.UTF8, true, 1024, true).ReadToEnd();
             // System.Console.WriteLine(body);
-            var parameters = decode_parameters(body);
-            if (!contains(parameters, new string[] { "token", "action" }))
+            var parameters = ctrl_tools.decode_parameters(body);
+            if (!ctrl_tools.contains(parameters, new string[] { "token", "action" }))
             {
                 return ret(new dto.msg(dto.msg.response_code_logout, message_sys.wrong_parameters, "", false));
             }
@@ -101,8 +81,8 @@ namespace mercury.controller
         public IActionResult update()
         {
             string body = new StreamReader(HttpContext.Request.Body, Encoding.UTF8, true, 1024, true).ReadToEnd();
-            var parameters = decode_parameters(body);
-            if (!contains(parameters, new string[] { "token", "action" }))
+            var parameters = ctrl_tools.decode_parameters(body);
+            if (!ctrl_tools.contains(parameters, new string[] { "token", "action" }))
             {
                 return ret(new dto.msg(dto.msg.response_code_logout, message_sys.wrong_parameters, "", false));
             }
@@ -135,8 +115,8 @@ namespace mercury.controller
         public IActionResult insert()
         {
             string body = new StreamReader(HttpContext.Request.Body, Encoding.UTF8, true, 1024, true).ReadToEnd();
-            var parameters = decode_parameters(body);
-            if (!contains(parameters, new string[] { "token", "action" }))
+            var parameters = ctrl_tools.decode_parameters(body);
+            if (!ctrl_tools.contains(parameters, new string[] { "token", "action" }))
             {
                 return ret(new dto.msg(dto.msg.response_code_logout, message_sys.wrong_parameters, "", false));
             }
@@ -169,8 +149,8 @@ namespace mercury.controller
         public IActionResult delete()
         {
             string body = new StreamReader(HttpContext.Request.Body, Encoding.UTF8, true, 1024, true).ReadToEnd();
-            var parameters = decode_parameters(body);
-            if (!contains(parameters, new string[] { "token", "action" }))
+            var parameters = ctrl_tools.decode_parameters(body);
+            if (!ctrl_tools.contains(parameters, new string[] { "token", "action" }))
             {
                 return ret(new dto.msg(dto.msg.response_code_logout, message_sys.wrong_parameters, "", false));
             }
