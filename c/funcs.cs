@@ -80,7 +80,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.staffs.Remove(item);
             dbc_mercury.staffs.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected session update_session(Dictionary<string, string> parameters)
@@ -89,7 +89,10 @@ namespace mercury.controller
             var item = dbc_mercury.sessions.FirstOrDefault(x => x.id == item_new.id);
             dbc_mercury.sessions.Remove(item);
             dbc_mercury.sessions.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
+            // System.Console.WriteLine(item.token);
+            // System.Console.WriteLine(item.status);
+            // System.Console.WriteLine(item.dt_active);
             return item;
         }
         protected message update_message(Dictionary<string, string> parameters)
@@ -100,7 +103,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.messages.Remove(item);
             dbc_mercury.messages.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected group update_group(Dictionary<string, string> parameters)
@@ -111,7 +114,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.groups.Remove(item);
             dbc_mercury.groups.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected group_user update_group_user(Dictionary<string, string> parameters)
@@ -122,7 +125,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.group_users.Remove(item);
             dbc_mercury.group_users.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected contact update_contact(Dictionary<string, string> parameters)
@@ -133,7 +136,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.contacts.Remove(item);
             dbc_mercury.contacts.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected chat update_chat(Dictionary<string, string> parameters)
@@ -144,7 +147,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.chats.Remove(item);
             dbc_mercury.chats.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected attachment update_attachment(Dictionary<string, string> parameters)
@@ -155,7 +158,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.attachments.Remove(item);
             dbc_mercury.attachments.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         protected language update_language(Dictionary<string, string> parameters)
@@ -166,7 +169,7 @@ namespace mercury.controller
                 return null;
             dbc_mercury.languages.Remove(item);
             dbc_mercury.languages.Add(item_new);
-            dbc.update(item);
+            dbc.update(item_new);
             return item;
         }
         #endregion update
